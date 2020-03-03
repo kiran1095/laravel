@@ -32,4 +32,6 @@ Route::get('/login',function(){
     return view('login');
 });
 
+Route::post('/login_controller','login_controller@login')->middleware('login');
+
 
