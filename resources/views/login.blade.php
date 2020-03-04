@@ -21,7 +21,7 @@ div {
 <div style="margin-top:10%;">
 
      <h1>LOGIN</h1> <hr>
-      <form  action="login_controller"  method = "post">
+      <form  action="/login_controller"  method = "post">
 
 	<table>
 	<tr>
