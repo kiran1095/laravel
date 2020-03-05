@@ -13,7 +13,11 @@ div {
   padding: 50px;
   margin: 20px;
 }
+strong {color:red;}
 </style>
+<script>
+    
+    </script>
 </head>
    <body>
    
@@ -25,6 +29,7 @@ div {
 
 	<table>
 	<tr>
+    <strong>{{$result}}</strong>
           @csrf
          <tr><td>Email-ID:</td><td><input type="text" name="email"/></td></tr>
           @error('email')
@@ -37,7 +42,8 @@ div {
           <tr><td> </td><td><input type="submit" name="submit" value="Submit"/></td> 
          </tr>
 	</tr>
-	</table>
+  </table>
+
 
      
     </form>

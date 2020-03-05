@@ -43,9 +43,5 @@ else{
     return view('login')->with('result',$result);
 }
 DB::commit();
-  
-
-
-
     }
 }
