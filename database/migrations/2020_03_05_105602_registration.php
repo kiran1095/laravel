@@ -15,7 +15,8 @@ class Registration extends Migration
     {
         Schema::create('register',function(Blueprint $table){
             $table->bigIncrements('id');
-            $table->string('name')->nullable(false);
+            $table->string('first_name')->nullable(false);
+            $table->string('last_name')->nullable(false);
             $table->string('email')->unique()->nullable(false);
             $table->string('password')->nullable(false);
             $table->string('phone')->unique()->nullable(false);

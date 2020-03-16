@@ -4,35 +4,48 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\login;
+use App\register;
 
-
-class login_controller extends Controller
+class registration extends Controller
 {
     function insertdata(Request $r)
     {
         $r->validate([
+            'first_name'=>'required',
+            'last_name'=>'required',
             'email'=>'required|email',
-            'password'=>'min:6'
-        ]);
-        echo "<br>";
-        //$email=$r->input('email');
-        //echo "Welcome! You have been logged in as ".$email;
-       // $a=$r->url;
-      // print_r($r->input());
-      //echo "all the data in array form"
+            'password'=>'min:6',
+            'phone'=>'required',
+            'age'=>'required',
+            'gender'=>'required'
+        ]); 
+
       $r->session()->put('email',$r->input('email'));
       $email=$r->session()->get('email');
-      echo $email;
-      $data=array('email'=>$email,'check'=>"checked");
-     //$r->session()->flash('data','this is laravel sessions');
-     //return view('welcome')->with($data);
+      //echo $email;
 
-     //$user=DB::select('select * from profilev2');
-     // print_r($user);
 
 DB::beginTransaction();
-if(DB::table('login')->where([['email','=',$r->email],['password','=',$r->password]])->exists()){
+        
+            $user_register= new register;
+           if($user_register->insert($r)){
+           }
+           else{
+               $result='please check the details entered';
+               return view('register')->with('result','$result');
+           }
+DB::commit();
+return view('login');
+        }
+        
+}
+            
+        
+
+
+/*
+
+if(DB::table('register')->where([['email','=',$r->email],['password','=',$r->password]])->exists()){
    // alert('logged in ');
     $result="logged in successfully";
     return view('welcome')->with('result',$result);
@@ -45,3 +58,8 @@ else{
 DB::commit();
     }
 }
+
+
+
+
+*/

@@ -19,6 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/sample',function(){
+    return view('sample');
+});
+
 //Route::redirect("/","/hello/{id?}");
 
 Route::get('/hii/{abc}', function ($abc) {
@@ -33,5 +38,11 @@ Route::get('/login',function(){
 });
 
 Route::post('/login_controller','login_controller@insertdata');
+
+Route::get('/register',function(){
+    return view('register');
+});
+
+Route::post('/registration','registration@insertdata');
 
 

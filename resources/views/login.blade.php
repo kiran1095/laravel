@@ -29,7 +29,7 @@ strong {color:red;}
 
 	<table>
 	<tr>
-    <strong>{{$result}}</strong>
+    <strong>{{$result?? ''}}</strong>
           @csrf
          <tr><td>Email-ID:</td><td><input type="text" name="email"/></td></tr>
           @error('email')

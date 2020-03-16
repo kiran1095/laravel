@@ -15,7 +15,7 @@ class login_controller extends Controller
             'email'=>'required|email',
             'password'=>'min:6'
         ]);
-        echo "<br>";
+        //echo "<br>";
         //$email=$r->input('email');
         //echo "Welcome! You have been logged in as ".$email;
        // $a=$r->url;
